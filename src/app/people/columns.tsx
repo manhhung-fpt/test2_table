@@ -66,6 +66,16 @@ export const columns: ColumnDef<Person>[] = [
   {
     header: "Email",
     accessorKey: "email",
+    cell: ({ row }) => {
+      const email = row.getValue("email");
+      return (
+        <div className="font-medium">
+          <a href={`mailto:${email}`}>{
+            email
+          }</a>
+        </div>
+      );
+    },
   },
   {
     header: "Registration",
