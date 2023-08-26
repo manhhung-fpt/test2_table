@@ -67,12 +67,11 @@ export const columns: ColumnDef<Person>[] = [
     header: "Email",
     accessorKey: "email",
     cell: ({ row }) => {
-      const email = row.getValue("email");
+      const email: string = row.getValue("email"); // Specify the type as string
+      const formatted = email.toString();
       return (
         <div className="font-medium">
-          <a href={`mailto:${email}`}>{
-            email
-          }</a>
+          <a href={`mailto:${email}`}>{formatted}</a>
         </div>
       );
     },
